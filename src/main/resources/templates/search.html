@@ -12,26 +12,24 @@
 
     <form th:action="@{/search/results}" method = "post">
         <h2>Search by:</h2>
-
         <p>
             <span th:each="column : ${columns}">
                 <input
+                        class="form-check-input"
                         type="radio"
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
+                        th:checked="${column.key == 'all'}"
+                />
+                <label class="form-check-label" th:for="${column.key}" th:text="${column.value}"></label>
             </span>
-
         </p>
-
         <p>
-            <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <label class="form-label" for="searchTerm">Keyword:</label>
+            <input class="form-control" type="text" name="searchTerm" id="searchTerm" />
         </p>
-
-        <input type="submit" value="Search" />
+        <input class="btn btn-success" type="submit" value="Search" />
     </form>
 
     <hr />
